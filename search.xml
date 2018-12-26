@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo-NexT主题配置]]></title>
+    <url>%2Fblog%2F2018%2F12%2F26%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy 12345678// Code &amp; Code Blocks// --------------------------------------------------$code-font-family = $font-family-monospace$code-font-size = 13px$code-font-size = unit(hexo-config('font.codes.size'), px) if hexo-config('font.codes.size') is a 'unit'$code-border-radius = 3px$code-foreground = $black-light$code-background = $gainsboro 12345678910111213141516//设置印章类型 String stampType = item.getStamp_type(); //印章背景颜色 int stampThemBG = SealTheamUtil.getStampThemBG(stampType); //印章类型图片 int stampTypeImg = SealTheamUtil.getStampHomeTypeImg(stampType); //印章名 String stampName = SealTheamUtil.getSealTypeName(stampType); //印章状态 String stampState = item.getStamp_state(); //持有人 String curOwnerName = item.getCur_owner_name(); helper.setBackgroundRes(R.id.item_stamp_rl_background, stampThemBG) .setImageResource(R.id.item_stamp_iv_type, stampTypeImg) .setText(R.id.item_stamp_tv_sname, stampName); More info: Deployment]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo Gulp 异常处理]]></title>
     <url>%2Fblog%2F2018%2F12%2F26%2FHexo%20Gulp%2F</url>
     <content type="text"><![CDATA[一、找不到gulp12[15:21:59] Local gulp not found in ~/xxxx[15:21:59] Try running: npm install gulp cd 到博客根目录，查看安装目录1npm link gulp 查看node 安装目录1npm root -g 配置node_modules 环境变量1234open ~/.bash_profile+ NODE_PATH=/usr/local/lib/node_modules + export NODE_PATH 二、gulp 4+ 语法错误1234567网上通用教程的写法...gulp// 默认任务gulp.task(&apos;default&apos;, [ &apos;minify-html&apos;,&apos;minify-css&apos;,&apos;minify-js&apos;,&apos;minify-images&apos; ]); 错误示例：1234567891011121314assert.js:80 throw new assert.AssertionError(&#123; ^AssertionError: Task function must be specified at Gulp.set [as _setTask] (/usr/local/lib/node_modules/gulp/node_modules/undertaker/lib/set-task.js:10:3) at Gulp.task (/usr/local/lib/node_modules/gulp/node_modules/undertaker/lib/task.js:13:8) at Object.&lt;anonymous&gt; (/Users/mecono/xxxxx/gulpfile.js:60:6) at Module._compile (module.js:570:32) at Object.Module._extensions..js (module.js:579:10) at Module.load (module.js:487:32) at tryModuleLoad (module.js:446:12) at Function.Module._load (module.js:438:3) at Module.require (module.js:497:17) at require (internal/module.js:20:19) 解决 查看当前gulp 版本 1gulp -v Gulp3，如果有一个任务A，B和C的列表，你想在一个序列中运行（确保A在B开始之前完成，而B在C开始之前完成），代码如下： 123456789gulp.task(&apos;a&apos;, function () &#123; // Do something.&#125;);gulp.task(&apos;b&apos;, [&apos;a&apos;], function () &#123; // Do some stuff.&#125;);gulp.task(&apos;c&apos;, [&apos;b&apos;], function () &#123; // Do some more stuff.&#125;); Gulp4，需要以下写法 123gulp.task(&apos;my-tasks&apos;, gulp.series(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, function() &#123; // Do something after a, b, and c are finished.&#125;)); 最终修改为 123456789// 默认任务- gulp.task(&apos;default&apos;, [- &apos;minify-html&apos;,&apos;minify-css&apos;,&apos;minify-js&apos;,&apos;minify-images&apos;- ]);+ gulp.task(&apos;default&apos;, gulp.series(&apos;minify-html&apos;,&apos;minify-css&apos;,&apos;minify-js&apos;,&apos;minify-images&apos;, function() &#123;+ + &#125;));]]></content>
@@ -22,17 +33,6 @@
       <tags>
         <tag>Jenkins</tag>
         <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo-NexT主题配置]]></title>
-    <url>%2Fblog%2F2018%2F12%2F26%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy 12345678// Code &amp; Code Blocks// --------------------------------------------------$code-font-family = $font-family-monospace$code-font-size = 13px$code-font-size = unit(hexo-config('font.codes.size'), px) if hexo-config('font.codes.size') is a 'unit'$code-border-radius = 3px$code-foreground = $black-light$code-background = $gainsboro 12345678910111213141516//设置印章类型 String stampType = item.getStamp_type(); //印章背景颜色 int stampThemBG = SealTheamUtil.getStampThemBG(stampType); //印章类型图片 int stampTypeImg = SealTheamUtil.getStampHomeTypeImg(stampType); //印章名 String stampName = SealTheamUtil.getSealTypeName(stampType); //印章状态 String stampState = item.getStamp_state(); //持有人 String curOwnerName = item.getCur_owner_name(); helper.setBackgroundRes(R.id.item_stamp_rl_background, stampThemBG) .setImageResource(R.id.item_stamp_iv_type, stampTypeImg) .setText(R.id.item_stamp_tv_sname, stampName); More info: Deployment]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
