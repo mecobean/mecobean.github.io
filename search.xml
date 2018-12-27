@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[iTerm2 prompt_status5 command not found wc 异常解决]]></title>
+    <url>%2Fblog%2F2018%2F12%2F27%2FiTerm2%20prompt_status-5-%20command%20not%20found-%20wc%20%E5%BC%82%E5%B8%B8%E8%A7%A3%E5%86%B3%2F</url>
+    <content type="text"><![CDATA[iTerm2 报错如下 1prompt_status:5: command not found: wc 先让 iTerm2 临时可用，在 iTerm2 输入以下命令 回车 12PATH=/bin:/usr/bin:/usr/local/bin:$&#123;PATH&#125;export PATH 查看 wc 路径 123456which wc# 或者whereis wc# output/usr/bin/wc 将 wc 添加到环境变量中，输入以下命令 1open ~/.bash_profile bash_profile 文件添加 123+ # 添加wc 环境变量+ export WC_PATH=/usr/bin/wc + export PATH=$WC_PATH/bin:$PATH 重启 iTerm2 解决]]></content>
+      <categories>
+        <category>Iterm2</category>
+      </categories>
+      <tags>
+        <tag>Iterm2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo Gulp 异常处理]]></title>
     <url>%2Fblog%2F2018%2F12%2F26%2FHexo%20Gulp%2F</url>
     <content type="text"><![CDATA[一、找不到gulp12[15:21:59] Local gulp not found in ~/xxxx[15:21:59] Try running: npm install gulp cd 到博客根目录，查看安装目录1npm link gulp 查看node 安装目录1npm root -g 配置node_modules 环境变量1234open ~/.bash_profile+ NODE_PATH=/usr/local/lib/node_modules + export NODE_PATH 二、gulp 4+ 语法错误1234567网上通用教程的写法...gulp// 默认任务gulp.task(&apos;default&apos;, [ &apos;minify-html&apos;,&apos;minify-css&apos;,&apos;minify-js&apos;,&apos;minify-images&apos; ]); 错误示例：1234567891011121314assert.js:80 throw new assert.AssertionError(&#123; ^AssertionError: Task function must be specified at Gulp.set [as _setTask] (/usr/local/lib/node_modules/gulp/node_modules/undertaker/lib/set-task.js:10:3) at Gulp.task (/usr/local/lib/node_modules/gulp/node_modules/undertaker/lib/task.js:13:8) at Object.&lt;anonymous&gt; (/Users/mecono/xxxxx/gulpfile.js:60:6) at Module._compile (module.js:570:32) at Object.Module._extensions..js (module.js:579:10) at Module.load (module.js:487:32) at tryModuleLoad (module.js:446:12) at Function.Module._load (module.js:438:3) at Module.require (module.js:497:17) at require (internal/module.js:20:19) 解决 查看当前gulp 版本 1gulp -v Gulp3，如果有一个任务A，B和C的列表，你想在一个序列中运行（确保A在B开始之前完成，而B在C开始之前完成），代码如下： 123456789gulp.task(&apos;a&apos;, function () &#123; // Do something.&#125;);gulp.task(&apos;b&apos;, [&apos;a&apos;], function () &#123; // Do some stuff.&#125;);gulp.task(&apos;c&apos;, [&apos;b&apos;], function () &#123; // Do some more stuff.&#125;); Gulp4，需要以下写法 123gulp.task(&apos;my-tasks&apos;, gulp.series(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, function() &#123; // Do something after a, b, and c are finished.&#125;)); 最终修改为 123456789// 默认任务- gulp.task(&apos;default&apos;, [- &apos;minify-html&apos;,&apos;minify-css&apos;,&apos;minify-js&apos;,&apos;minify-images&apos;- ]);+ gulp.task(&apos;default&apos;, gulp.series(&apos;minify-html&apos;,&apos;minify-css&apos;,&apos;minify-js&apos;,&apos;minify-images&apos;, function() &#123;+ + &#125;));]]></content>
