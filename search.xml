@@ -24,6 +24,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Hexo-NexT主题配置]]></title>
+    <url>%2Fblog%2F2018%2F12%2F26%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy 12345678// Code &amp; Code Blocks// --------------------------------------------------$code-font-family = $font-family-monospace$code-font-size = 13px$code-font-size = unit(hexo-config('font.codes.size'), px) if hexo-config('font.codes.size') is a 'unit'$code-border-radius = 3px$code-foreground = $black-light$code-background = $gainsboro 12345678910111213141516//设置印章类型 String stampType = item.getStamp_type(); //印章背景颜色 int stampThemBG = SealTheamUtil.getStampThemBG(stampType); //印章类型图片 int stampTypeImg = SealTheamUtil.getStampHomeTypeImg(stampType); //印章名 String stampName = SealTheamUtil.getSealTypeName(stampType); //印章状态 String stampState = item.getStamp_state(); //持有人 String curOwnerName = item.getCur_owner_name(); helper.setBackgroundRes(R.id.item_stamp_rl_background, stampThemBG) .setImageResource(R.id.item_stamp_iv_type, stampTypeImg) .setText(R.id.item_stamp_tv_sname, stampName); More info: Deployment]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mac下命令行搭建Jenkins]]></title>
     <url>%2Fblog%2F2018%2F12%2F26%2FMac%E4%B8%8B%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%90%AD%E5%BB%BAJenkins%2F</url>
     <content type="text"><![CDATA[参考：https://www.jianshu.com/p/8eee4b73db24参考：https://segmentfault.com/q/1010000014899217构建参数参考：https://www.jianshu.com/p/38b2e17ced73/ 一、环境搭建1. 搭建和配置 Java 环境 搭建过程略，搭建成功如下图 2. 搭建 Jenkins 环境 使用 brew 安装 1命令行输入: brew install jenkins 安装示例 安装完成并验证，示例 命令行输入 Jenkins 启动 Jenkins 二、配置 Jenkins1. 基本配置 启动完成后，浏览器输入 localhost:8080 打开 Jenkins, 如图 打开提示的地址复制密码后继续下一步。 选择要安装的插件(一般就选择推荐的就可以,后边可以在设置中选择你想安装的插件)，等待安装完毕 插件安装完成，创建管理员 配置 Jenkins URL (默认的就好) 重启 Jenkins 配置完成 三、Android 配置自动化构建1. 安装 Android Lint Gradle Git 或者 SVN 插件 添加 SVN 全局帐号密码 2. 配置 JDK 系统设置 - 全局属性 - 全局工具配置 12MAC查找JDK路径：/usr/libexec/java_home -VAndroidStuido:查看 SDK 和 JDK 3. 配置 Gradle 系统设置 - 全局属性 - 全局工具配置 12345678910打开项目的Gradle - gradle-wapper.properties，查看当前项目的Gradle版本示例：#Mon May 21 15:27:34 CST 2018distributionBase=GRADLE_USER_HOMEdistributionPath=wrapper/distszipStoreBase=GRADLE_USER_HOMEzipStorePath=wrapper/distsdistributionUrl=https\://services.gradle.org/distributions/gradle-4.4-all.zipmac 路径：/Users/xxx/.gradle/wrapper/dists/gradle-4.4-all/xxxx 前往Finder 查看 可以配置本地gradle，也可以自动安装(注意和项目的版本一致) 4. 配置 SDK 查看当前AndroidStudio的 SKD 路径并设置 5. 构建项目 新增一个自由风格的构建项目 设置打包参数 选择 JDK 配置源码路径 SVN 配置 gradle 命令参数(渠道、版本、自定义参数等) 选择参数并开始构建 构建完成 查看 APK 文件 6. 邮箱通知 参考：https://juejin.im/entry/5a085ec66fb9a0452845f79e 安装插件：Extended E-mail Notification 系统设置 - Extended E-mail Notification 进行全局配置 点击高级 最后必须设置”Jenkins Location”。上面只是配置邮件服务器地址、账号和密码，但是Jenkins不知道采用哪个邮箱去发送，系统管理员邮件地址必须与上图设置的用户保持一致。 点击测试，你应该可以收到相应邮件 ##四、构建成功自动上传至 fir.im 内测分发平台 1.上传参考官方文档 参考官方文档：http://blog.fir.im/jenkins/ 2.Jenkins获取SVN或git提交日志上传到fir.im 插件名：changelog-environment作者原文：https://blog.csdn.net/tianxiawoyougood/article/details/71483306 下载插件：一键Git: https://github.com/voidxin/jenkins-plug-in.git 安装插件(略) 项目配置 - 构建环境 - Add Changelog Information to Environment12345Entry Format中添加 %3$s(at %4$s via %1$s)\n Date Format中添加 yyyy-MM-dd在命令行中使用SCM_CHANGELOG获取。$&#123;SCM_CHANGELOG&#125;]]></content>
@@ -33,17 +44,6 @@
       <tags>
         <tag>Jenkins</tag>
         <tag>MacOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo-NexT主题配置]]></title>
-    <url>%2Fblog%2F2018%2F12%2F26%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy 12345678// Code &amp; Code Blocks// --------------------------------------------------$code-font-family = $font-family-monospace$code-font-size = 13px$code-font-size = unit(hexo-config('font.codes.size'), px) if hexo-config('font.codes.size') is a 'unit'$code-border-radius = 3px$code-foreground = $black-light$code-background = $gainsboro 12345678910111213141516//设置印章类型 String stampType = item.getStamp_type(); //印章背景颜色 int stampThemBG = SealTheamUtil.getStampThemBG(stampType); //印章类型图片 int stampTypeImg = SealTheamUtil.getStampHomeTypeImg(stampType); //印章名 String stampName = SealTheamUtil.getSealTypeName(stampType); //印章状态 String stampState = item.getStamp_state(); //持有人 String curOwnerName = item.getCur_owner_name(); helper.setBackgroundRes(R.id.item_stamp_rl_background, stampThemBG) .setImageResource(R.id.item_stamp_iv_type, stampTypeImg) .setText(R.id.item_stamp_tv_sname, stampName); More info: Deployment]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
